@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+#INSTALL@ /usr/local/bin/roffmerge
+#INSTALLEDFROM verlaine:/home/ljm/src/roffmerge
 use strict;
 use warnings;
 use Text::CSV;
