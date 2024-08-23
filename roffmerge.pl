@@ -21,8 +21,41 @@ The first line in the CSV file must be the column name that is used for the plac
 separated by a , (comma). Fields may be quoted using \" (double quotes). Fields must not contain {-- or
 --}.
 
+The text-file is a template file that is used to merge with. 
+In the text-file, the sequence {--column name--} will be replaced by the values in the column with
+that name. The text-file should start with a 
+.mergetype xxxx
+request. Only one .mergetype should be present in the file. 
+xxxx can be:
+=         Texts are separated by a line of ====. The output file can be split with
+             csplit -z -f output_file_prefix -b "%03d.txt" input_file '/========/' '{*}'
+             sed -i '/========/d' output_file_prefix*.txt
+page      A .bp request is made to separate the different versions of the text-file.
+<file>    A filename with a definition of labels. The file can reide in the current
+          directory or under /usr/local/lib/label.
+herma4550 A label that is the default.
+
+A labelfile will contain the following lines:
+          qtyx=3           # number of horizontal labels
+          qtyy=9           # number of vertical labels
+          topx=1           # top left corner of the label
+          topy=1.          # top left corner of the label5
+          width=5          # width of the label		
+          height=2.2       # height of the label
+          xspace=1         # horizontal space between labels
+          yspace=0.5       # vertical space between labels.
+The values are in centimeters (except for the qtyx and qtyy).
+
+
+
 DEPENDENCIES:
 	Text::csv
+
+AUTHOR:
+        ljm
+
+BUGS:
+        Bunny.
 "}
 
 my $csvfilename;
