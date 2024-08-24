@@ -1,5 +1,6 @@
 #INSTALL@ /usr/local/lib/labels.herma4550a
 #INSTALLEDFROM verlaine:/home/ljm/src/roffmerge
+# Herma 4550 labels with margins
 qtyx=3
 qtyy=9
 topx=1
